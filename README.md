@@ -40,3 +40,7 @@ De eerste bedrijfswebsite is lokaal te bekijken op http://localhost:3000/vilmos.
 De Docker-container bevat uitsluitend de bedrijfswebsite en start met `SITE_MODE=website`. Op `/` opent de Vilmos-website; Studio-routes en projectbestanden worden niet geserveerd. Lokaal blijft `npm start` de Studio op `/` en de website op `/vilmos` openen.
 
 GitHub: https://github.com/pimdas/vilmos. Railway volgt de branch `main`; pushes naar deze branch publiceren de website opnieuw. Controleer wijzigingen eerst lokaal. Websitepublicatie gebruikt geen betaalde AI-API. Hosting valt onder het Railway-account.
+
+## Studio starten met een project
+
+De Studio volgt het Vilmos-brandbook en toont drie stappen: briefing, materiaal en overdracht naar de ontwikkelchat. Bij Nieuw project kun je direct een eerste briefing opslaan. De overdrachtknop staat in een afzonderlijk paneel onder de projectinstellingen. De Studio blijft lokaal en browseropslag wordt niet naar GitHub of Railway verzonden.

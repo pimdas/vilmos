@@ -23,8 +23,8 @@ function renderList() {
 }
 function renderMessages() {
   const p = current(); $('messages').replaceChildren();
-  const messages = p?.messages.length ? p.messages : [{ role: 'assistant', text: 'Welkom in je werkruimte. Beschrijf je idee en voeg eventueel je logo of teksten toe. Je briefing wordt hier bewaard; het sjabloonconcept stel je zelf samen met de velden hieronder.' }];
-  for (const m of messages) { const el = document.createElement('div'); el.className = 'message ' + m.role; const label = document.createElement('span'); label.className = 'message-label'; label.textContent = m.role === 'user' ? 'JIJ' : 'VILMOS STUDIO · SJABLOONMODUS'; const text = document.createElement('p'); text.textContent = m.text; el.append(label, text); $('messages').append(el); }
+  const messages = p?.messages.length ? p.messages : [{ role: 'assistant', text: 'Welkom in je werkruimte. Vertel wat je wilt maken of verbeteren en voeg eventueel bestanden toe. Gebruik daarna ‘Verder bouwen in je chat’ om je briefing mee te nemen. Het websitesjabloon rechts is alleen een optioneel beginpunt.' }];
+  for (const m of messages) { const el = document.createElement('div'); el.className = 'message ' + m.role; const label = document.createElement('span'); label.className = 'message-label'; label.textContent = m.role === 'user' ? 'JIJ' : 'VILMOS STUDIO · UITLEG'; const text = document.createElement('p'); text.textContent = m.text; el.append(label, text); $('messages').append(el); }
   $('messages').scrollTop = $('messages').scrollHeight;
 }
 function renderFiles() {
@@ -46,19 +46,19 @@ function updatePreview() {
 }
 function render() {
   const p = current(); renderList(); renderMessages(); renderFiles();
-  $('project-name').textContent = p?.name || 'Nieuw project'; $('project-settings').hidden = !p; $('welcome').hidden = !!p;
+  $('project-name').textContent = p?.name || 'Nieuw project'; $('project-settings').hidden = !p; $('handoff-panel').hidden = !p; $('welcome').hidden = !!p;
   for (const field of ['name', 'headline', 'description', 'cta', 'email', 'color']) $(field).value = p?.[field] || (field === 'color' ? '#c65d38' : '');
   updatePreview();
 }
-$('new-project').onclick = () => { $('new-name').value = ''; $('new-dialog').showModal(); $('new-name').focus(); };
+$('new-project').onclick = () => { $('new-name').value = ''; $('new-brief').value = ''; $('new-dialog').showModal(); $('new-name').focus(); };
 $('cancel-new').onclick = () => $('new-dialog').close();
-$('new-form').onsubmit = event => { event.preventDefault(); const name = $('new-name').value.trim(); if (!name) return; makeProject(name); $('new-dialog').close(); $('prompt').focus(); };
+$('new-form').onsubmit = event => { event.preventDefault(); const name = $('new-name').value.trim(); if (!name) return; const p = makeProject(name); const brief = $('new-brief').value.trim(); if (brief) { p.messages.push({ role: 'user', text: brief }); save(); renderMessages(); } $('new-dialog').close(); $('prompt').focus(); };
 document.querySelectorAll('[data-prompt]').forEach(b => b.onclick = () => { $('prompt').value = b.dataset.prompt; $('prompt').focus(); });
 $('chat-form').onsubmit = event => {
   event.preventDefault(); const text = $('prompt').value.trim(); if (!text) return;
   const p = current() || makeProject('Mijn nieuwe website');
   if (p.messages.length >= 198) { notify('Dit project heeft 200 berichten. Start een nieuw project of exporteer je werk.'); return; }
-  p.messages.push({ role: 'user', text }, { role: 'assistant', text: 'Je briefing is toegevoegd. Vul de koptekst en introductie hieronder in en klik op ‘Maak sjabloonconcept’. In deze versie worden je instructies nog niet automatisch door AI uitgevoerd. Het eerste geüploade beeld wordt als logo gebruikt; tekstbestanden blijven bewaard als bronmateriaal.' });
+  p.messages.push({ role: 'user', text }, { role: 'assistant', text: 'Je briefing is bewaard. Voeg eventueel je logo, beelden of teksten toe. Klaar? Klik hieronder op ‘Verder bouwen in je chat’. Daar kunnen we je project uitwerken. Het sjabloon rechts is optioneel en voert je chatopdrachten niet uit.' });
   p.updatedAt = new Date().toISOString(); $('prompt').value = ''; save(); renderMessages();
 };
 for (const key of ['name', 'headline', 'description', 'cta', 'email', 'color']) $(key).addEventListener('input', () => {
