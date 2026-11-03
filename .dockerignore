@@ -1,0 +1,10 @@
+.git
+docs
+tests
+.env*
+node_modules
+public/index.html
+public/app.js
+public/style.css
+public/studio.js
+public/handoff.js
