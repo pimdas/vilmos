@@ -22,7 +22,7 @@ test('public website mode serves the homepage and excludes Studio routes', async
     assert.equal(home.status, 200);
     assert.ok((await home.text()).includes('Plezier in bouwen.'));
     for (const path of ['/app.js', '/studio.js', '/handoff.js', '/index.html', '/docs/brand/brandbook-v1.png']) assert.equal((await fetch(origin + path)).status, 404);
-    for (const path of ['/website/brandmark.svg', '/website/portfolio/echoconsult.png', '/website/portfolio/vanroosmalen-zijlstra.png']) assert.equal((await fetch(origin + path)).status, 200);
+    for (const path of ['/website/effects.js', '/website/effects.css', '/website/refinement.css', '/website/react-bits-license.txt', '/website/brandmark.svg', '/website/portfolio/echoconsult.png', '/website/portfolio/vanroosmalen-zijlstra.png']) assert.equal((await fetch(origin + path)).status, 200);
   } finally { await new Promise(resolve => website.close(resolve)); }
 });
 test('untrusted imports cannot inject HTML, CSS or executable images', () => {

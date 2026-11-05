@@ -44,3 +44,9 @@ GitHub: https://github.com/pimdas/vilmos. Railway volgt de branch `main`; pushes
 ## Studio starten met een project
 
 De Studio volgt het Vilmos-brandbook en toont drie stappen: briefing, materiaal en overdracht naar de ontwikkelchat. Bij Nieuw project kun je direct een eerste briefing opslaan. De overdrachtknop staat in een afzonderlijk paneel onder de projectinstellingen. De Studio blijft lokaal en browseropslag wordt niet naar GitHub of Railway verzonden.
+
+## Lokale ontwerpverkenning — Taste, Impeccable en React Bits
+
+De website gebruikt React Bits TiltedCard als progressieve verbetering van de portfolioafbeeldingen. Alleen op desktop met een fijne aanwijzer en zonder verminderde beweging worden React-eilanden geladen; inhoud, links, formulier en mobiele afbeeldingen blijven gewone HTML. Bron: https://github.com/DavidHDev/react-bits (licentie bewaard in `src/website/react-bits/LICENSE.md` en `public/website/react-bits-license.txt`).
+
+Na wijzigingen aan `src/website/`: `npm run build:website`. De gegenereerde `public/website/effects.js` en `effects.css` moeten bij de websitebestanden blijven; de bestaande Docker-publicatie serveert deze bestanden rechtstreeks. De lokale proefversie staat op `/vilmos`. Publicatie van de goedgekeurde versie verloopt via de branch `main` naar Railway.
