@@ -100,3 +100,7 @@ h2 em{font-style:normal;font-weight:inherit}
 
 /* Contact now follows the approach directly. */
 .approach + .contact{margin-top:clamp(40px,5vw,72px)}
+
+/* SVG arrows retain their drawn shape on every platform, including iOS. */
+.icon-arrow{display:inline-block;width:1em;height:1em;flex-shrink:0;vertical-align:-.125em;overflow:visible}
+.button .icon-arrow{width:18px;height:18px}
