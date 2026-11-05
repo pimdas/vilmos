@@ -97,3 +97,6 @@ h2 em{font-style:normal;font-weight:inherit}
 @media(max-width:1000px){.hero-art{height:490px;max-width:500px;margin-top:10px}}
 @media(max-width:650px){.hero-art{height:390px;max-width:390px;margin-top:16px}.hero-art .demo-window{top:42px}.hero-art .demo-body h2{font-size:36px}.hero-art .art-label{display:none}.hero-art .automation-note{bottom:2px}}
 @media(max-width:650px){.hero-art .demo-body h2{font-size:29px}.hero-art .demo-body{padding-bottom:35px}}
+
+/* Contact now follows the approach directly. */
+.approach + .contact{margin-top:clamp(40px,5vw,72px)}
