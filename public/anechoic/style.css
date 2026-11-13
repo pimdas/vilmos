@@ -39,9 +39,10 @@ a { color: inherit; text-underline-offset: .25em; }
 a:focus-visible, select:focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; }
 .wrap { width: min(1280px, calc(100% - clamp(32px, 10vw, 144px))); margin-inline: auto; }
 header, footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; }
-header { border-bottom: 1px solid var(--line); }
+header { justify-content: center; border-bottom: 1px solid var(--line); }
+.header-logo { display: block; width: clamp(112px, 13vw, 152px); height: auto; }
 .brand { text-decoration: none; font-size: 1.65rem; letter-spacing: -.04em; }
-.nav, footer span { color: var(--muted); font-size: .9rem; }
+footer span { color: var(--muted); font-size: .9rem; }
 .hero { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: clamp(24px, 6vw, 88px); padding-block: clamp(38px, 6vw, 88px); }
 h1, h2, h3, p, figure { margin: 0; }
 h1, h2 { font-family: var(--heading); line-height: .98; letter-spacing: -.04em; }

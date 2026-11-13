@@ -14,6 +14,7 @@ const orthozorgRoutes = {
   '/orthozorg/assets/clinic.jpg': ['orthozorg/assets/clinic.jpg', 'image/jpeg'],
 };
 const anechoicRoutes = {
+  '/anechoic/sonoskills-white.png': ['anechoic/sonoskills-white.png', 'image/png'],
   '/anechoic': ['anechoic/index.html', 'text/html; charset=utf-8'],
   '/anechoic/': ['anechoic/index.html', 'text/html; charset=utf-8'],
   '/anechoic/style.css': ['anechoic/style.css', 'text/css; charset=utf-8'],
