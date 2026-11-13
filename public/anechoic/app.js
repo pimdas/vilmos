@@ -2,14 +2,18 @@ const start = Date.parse(document.querySelector('#start').dateTime);
 const end = Date.parse('2026-12-01T00:00:00+01:00');
 const clock = document.querySelector('.clock');
 const heading = document.querySelector('#countdown-title');
+const launchDate = document.querySelector('#launch-date');
+const liveOffer = document.querySelector('#live-offer');
 const digits = [...clock.querySelectorAll('b')];
 
 function updateClock() {
   const now = Date.now();
   const seconds = Math.max(0, Math.ceil((start - now) / 1000));
   clock.hidden = now >= start;
-  heading.textContent = now < start ? 'The deal starts in'
-    : now < end ? 'Anechoic Friday is on' : 'Anechoic Friday has ended';
+  launchDate.hidden = now >= start;
+  liveOffer.hidden = now < start || now >= end;
+  heading.textContent = now < start ? 'Countdown to liftoff'
+    : now < end ? 'We’ve landed on Planet Deal' : 'Anechoic Friday has ended';
   const parts = [Math.floor(seconds / 86400), Math.floor(seconds / 3600) % 24,
     Math.floor(seconds / 60) % 60, seconds % 60];
   parts.forEach((value, index) => {

@@ -55,6 +55,7 @@ h1, h2 { font-family: var(--heading); line-height: .98; letter-spacing: -.04em; 
 h1 { font-size: clamp(3rem, 7.7vw, 7rem); text-transform: uppercase; }
 h1 span { display: inline-block; font-size: .43em; vertical-align: top; margin-top: .12em; color: var(--muted); }
 .date { margin-top: 20px; font-size: clamp(1.4rem, 2.9vw, 2.35rem); font-weight: 700; }
+.tagline { margin-top: 16px; color: var(--muted); }
 .offer { margin-block: 24px; max-width: 29ch; font-size: clamp(1.1rem, 2vw, 1.55rem); }
 .offer strong {
   font: 400 1.55em/1 "Kindness Matters", Campton, sans-serif;
@@ -75,6 +76,7 @@ h1 span { display: inline-block; font-size: .43em; vertical-align: top; margin-t
 .clock span { margin-top: 6px; font-size: .85rem; }
 .catalog { padding-block: clamp(45px, 7vw, 100px); }
 .catalog h2 { font-size: clamp(2.25rem, 5vw, 4.8rem); margin-bottom: 24px; }
+.catalog-intro { margin: -8px 0 24px; color: var(--muted); }
 .catalog-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-bottom: 24px; }
 select { color: var(--ink); background: var(--ground); border: 1px solid #777; font: inherit; padding: 10px; min-width: 0; max-width: 100%; }
 #results { margin-left: auto; color: var(--muted); }
