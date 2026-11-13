@@ -18,7 +18,10 @@ const anechoicRoutes = {
   '/anechoic/': ['anechoic/index.html', 'text/html; charset=utf-8'],
   '/anechoic/style.css': ['anechoic/style.css', 'text/css; charset=utf-8'],
   '/anechoic/app.js': ['anechoic/app.js', 'text/javascript; charset=utf-8'],
-  '/anechoic/campaign.jpg': ['anechoic/campaign.jpg', 'image/jpeg'],
+  '/anechoic/fonts/campton-bold.otf': ['anechoic/fonts/campton-bold.otf', 'font/otf'],
+  '/anechoic/fonts/campton-book.otf': ['anechoic/fonts/campton-book.otf', 'font/otf'],
+  '/anechoic/fonts/geomanist-bold.woff2': ['anechoic/fonts/geomanist-bold.woff2', 'font/woff2'],
+  '/anechoic/fonts/kindness-matters.otf': ['anechoic/fonts/kindness-matters.otf', 'font/otf'],
 };
 Object.assign(routes, orthozorgRoutes, anechoicRoutes);
 const defaultCsp = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; frame-src 'self' blob:; object-src 'none'; base-uri 'none'; frame-ancestors 'none'";

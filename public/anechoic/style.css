@@ -1,11 +1,36 @@
+@font-face {
+  font-family: "Geomanist";
+  src: url("/anechoic/fonts/geomanist-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Campton";
+  src: url("/anechoic/fonts/campton-book.otf") format("opentype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Campton";
+  src: url("/anechoic/fonts/campton-bold.otf") format("opentype");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Kindness Matters";
+  src: url("/anechoic/fonts/kindness-matters.otf") format("opentype");
+  font-weight: 400;
+  font-display: swap;
+}
+
 :root {
   color-scheme: dark;
   --ink: #f7f7f5;
   --muted: #bcbcbc;
   --line: #383838;
   --ground: #000;
-  --heading: Geomanist, "Geomanist Bold", "Arial Black", sans-serif;
-  --body: Campton, "Campton Book", Avenir, sans-serif;
+  --heading: Geomanist, "Arial Black", sans-serif;
+  --body: Campton, Avenir, sans-serif;
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -24,12 +49,15 @@ h1 { font-size: clamp(3rem, 7.7vw, 7rem); text-transform: uppercase; }
 h1 span { display: inline-block; font-size: .43em; vertical-align: top; margin-top: .12em; color: var(--muted); }
 .date { margin-top: 20px; font-size: clamp(1.4rem, 2.9vw, 2.35rem); font-weight: 700; }
 .offer { margin-block: 24px; max-width: 29ch; font-size: clamp(1.1rem, 2vw, 1.55rem); }
-.offer strong { white-space: nowrap; }
+.offer strong {
+  font: 400 1.55em/1 "Kindness Matters", Campton, sans-serif;
+  white-space: nowrap;
+}
 .action { display: inline-flex; gap: 18px; align-items: center; padding: 12px 20px; background: var(--ink); color: var(--ground); font-weight: 700; text-decoration: none; }
 .action:hover { background: #ccc; }
 .media { background: #050505; border: 1px solid var(--line); }
-.media img, .media video, .media iframe { width: 100%; height: auto; display: block; }
-.media video, .media iframe { aspect-ratio: 16 / 9; border: 0; }
+.media iframe { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border: 0; }
+.video-link { display: block; width: fit-content; margin: 10px 14px; color: var(--muted); font-size: .875rem; }
 .countdown { border-block: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1.4fr; align-items: center; gap: 24px; padding-block: 30px; }
 .countdown h2 { font-size: clamp(1.6rem, 3vw, 2.5rem); margin-bottom: 8px; }
 .countdown p, .clock span { color: var(--muted); }

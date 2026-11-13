@@ -1,14 +1,3 @@
-// Set this to the campaign's YouTube privacy-enhanced or Vimeo embed URL.
-const campaignVideo = '';
-if (campaignVideo) {
-  const player = document.createElement('iframe');
-  player.src = campaignVideo;
-  player.title = 'Anechoic Friday campaign video';
-  player.referrerPolicy = 'strict-origin-when-cross-origin';
-  player.allowFullscreen = true;
-  document.querySelector('.media').replaceChildren(player);
-}
-
 const start = Date.parse(document.querySelector('#start').dateTime);
 const end = Date.parse('2026-12-01T00:00:00+01:00');
 const clock = document.querySelector('.clock');
