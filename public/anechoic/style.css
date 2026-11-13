@@ -36,7 +36,7 @@
 [hidden] { display: none !important; }
 body { margin: 0; background: var(--ground); color: var(--ink); font: 1rem/1.5 var(--body); }
 a { color: inherit; text-underline-offset: .25em; }
-a:focus-visible, select:focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; }
+a:focus-visible, .area-buttons button:focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; }
 .wrap { width: min(1280px, calc(100% - clamp(32px, 10vw, 144px))); margin-inline: auto; }
 header, footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; }
 header { justify-content: center; border-bottom: 1px solid var(--line); }
@@ -77,9 +77,33 @@ h1 span { display: inline-block; font-size: .43em; vertical-align: top; margin-t
 .catalog { padding-block: clamp(45px, 7vw, 100px); }
 .catalog h2 { font-size: clamp(2.25rem, 5vw, 4.8rem); margin-bottom: 24px; }
 .catalog-intro { margin: -8px 0 24px; color: var(--muted); }
-.catalog-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-bottom: 24px; }
-select { color: var(--ink); background: var(--ground); border: 1px solid #777; font: inherit; padding: 10px; min-width: 0; max-width: 100%; }
-#results { margin-left: auto; color: var(--muted); }
+.catalog-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(170px, 205px);
+  align-items: start;
+  gap: 16px 24px;
+  margin-bottom: 24px;
+}
+.area-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+.area-buttons button {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 1px solid #777;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+.area-buttons button:hover { border-color: var(--ink); }
+.area-buttons button[aria-pressed="true"] { background: var(--ink); color: var(--ground); }
+.catalog-search { display: grid; gap: 4px; color: var(--muted); font-size: .875rem; }
+@media (max-width: 700px) {
+  .catalog-controls { grid-template-columns: minmax(0, 1fr); }
+  .catalog-search { justify-self: end; width: min(205px, 100%); }
+}
+#results { grid-column: 1 / -1; margin-left: auto; color: var(--muted); }
 .courses { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 36px; padding: 0; margin: 0; list-style: none; }
 .courses li { border-top: 1px solid var(--line); }
 .course { display: grid; grid-template-columns: 76px minmax(0, 1fr) 18px; align-items: center; gap: 16px; text-decoration: none; min-height: 110px; padding-block: 16px; }
@@ -106,7 +130,7 @@ footer { border-top: 1px solid var(--line); }
 }
 
 #course-search {
-  flex: 1 1 200px;
+  width: 100%;
   min-width: 0;
   padding: 10px;
   border: 1px solid var(--line);

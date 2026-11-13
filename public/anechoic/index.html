@@ -51,19 +51,20 @@
       <h2 id="catalog-title">Explore the SonoSkills universe</h2>
       <p class="catalog-intro">Browse on-demand ultrasound courses in muscles, tendons, joints, nerves and more.</p>
       <div class="catalog-controls" hidden>
-        <label for="course-search">Search courses</label>
-        <input id="course-search" type="search" placeholder="Course title or instructor">
-        <label for="area">Area of interest</label>
-        <select id="area">
-          <option value="">All courses</option>
-          <option value="0">Upper Extremity</option>
-          <option value="1">Lower Extremity</option>
-          <option value="2">Spine, Pelvic Floor, TMJ &amp; Axial Structures</option>
-          <option value="3">Peripheral Nerve &amp; Entrapment Syndromes</option>
-          <option value="4">Interventional &amp; Advanced Techniques</option>
-          <option value="5">Pathology-focused</option>
-          <option value="6">Protocols, Clinical Reasoning &amp; Reporting</option>
-        </select>
+        <div class="area-buttons" role="group" aria-label="Area of interest">
+          <button type="button" data-area="" aria-pressed="true">All courses</button>
+          <button type="button" data-area="0" aria-pressed="false">Upper Extremity</button>
+          <button type="button" data-area="1" aria-pressed="false">Lower Extremity</button>
+          <button type="button" data-area="2" aria-pressed="false">Spine, Pelvic Floor, TMJ &amp; Axial Structures</button>
+          <button type="button" data-area="3" aria-pressed="false">Peripheral Nerve &amp; Entrapment Syndromes</button>
+          <button type="button" data-area="4" aria-pressed="false">Interventional &amp; Advanced Techniques</button>
+          <button type="button" data-area="5" aria-pressed="false">Pathology-focused</button>
+          <button type="button" data-area="6" aria-pressed="false">Protocols, Clinical Reasoning &amp; Reporting</button>
+        </div>
+        <div class="catalog-search">
+          <label for="course-search">Search courses</label>
+          <input id="course-search" type="search" placeholder="Title or instructor">
+        </div>
         <p id="results" role="status"></p>
       </div>
       <ul class="courses">

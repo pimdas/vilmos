@@ -29,7 +29,8 @@ if (Date.now() < end) {
   }, 1000);
 }
 
-const area = document.querySelector('#area');
+const areaButtons = [...document.querySelectorAll('.area-buttons button')];
+let selectedArea = '';
 const search = document.querySelector('#course-search');
 const results = document.querySelector('#results');
 const courses = [...document.querySelectorAll('.courses li')];
@@ -38,7 +39,7 @@ function filterCourses() {
   const query = search.value.trim().toLowerCase();
   let count = 0;
   for (const course of courses) {
-    const matchesArea = !area.value || course.dataset.area === area.value;
+    const matchesArea = !selectedArea || course.dataset.area === selectedArea;
     const matchesSearch = [...course.querySelectorAll('h3, small')].some(field => field.textContent.toLowerCase().includes(query));
     course.hidden = !matchesArea || !matchesSearch;
     if (!course.hidden) count++;
@@ -47,6 +48,14 @@ function filterCourses() {
 }
 
 search.addEventListener('input', filterCourses);
-area.addEventListener('change', filterCourses);
+for (const button of areaButtons) {
+  button.addEventListener('click', () => {
+    selectedArea = button.dataset.area;
+    for (const option of areaButtons) {
+      option.setAttribute('aria-pressed', String(option === button));
+    }
+    filterCourses();
+  });
+}
 filterCourses();
 document.querySelector('.catalog-controls').hidden = false;
