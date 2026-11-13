@@ -30,18 +30,23 @@ if (Date.now() < end) {
 }
 
 const area = document.querySelector('#area');
+const search = document.querySelector('#course-search');
 const results = document.querySelector('#results');
 const courses = [...document.querySelectorAll('.courses li')];
 
 function filterCourses() {
+  const query = search.value.trim().toLowerCase();
   let count = 0;
   for (const course of courses) {
-    course.hidden = Boolean(area.value) && course.dataset.area !== area.value;
+    const matchesArea = !area.value || course.dataset.area === area.value;
+    const matchesSearch = [...course.querySelectorAll('h3, small')].some(field => field.textContent.toLowerCase().includes(query));
+    course.hidden = !matchesArea || !matchesSearch;
     if (!course.hidden) count++;
   }
-  results.textContent = `${count} ${count === 1 ? 'result' : 'results'}`;
+  results.textContent = count === 0 ? 'No courses found' : `${count} ${count === 1 ? 'result' : 'results'}`;
 }
 
+search.addEventListener('input', filterCourses);
 area.addEventListener('change', filterCourses);
 filterCourses();
 document.querySelector('.catalog-controls').hidden = false;

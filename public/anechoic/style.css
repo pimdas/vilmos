@@ -104,3 +104,15 @@ footer { border-top: 1px solid var(--line); }
   .course { grid-template-columns: 58px minmax(0, 1fr) 18px; gap: 12px; }
   .course img { width: 58px; height: 58px; }
 }
+
+#course-search {
+  flex: 1 1 200px;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid var(--line);
+  background: #141414;
+  color: inherit;
+  font: inherit;
+}
+#course-search::placeholder { color: var(--muted); }
+#course-search:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
